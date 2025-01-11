@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 
+print("---- Bollywood Hit Movies ---- \n")
+
 # Read the CSV file
 csv_file = '/Users/rhishijoshi/Hits/bollywood_meta_2010-2019.csv'
 df = pd.read_csv(csv_file)
@@ -31,10 +33,25 @@ conn.close()
 
 print("Database created and data inserted successfully.")
 
-print("---- Hit Movies ---- \n")
+print("---- Printing hit Movies ---- \n")
+
+# Connect to SQLite database
+conn = sqlite3.connect('/Users/rhishijoshi/Hits/bollywood_movies.db')
+cursor = conn.cursor()
+
+# Query to select all rows from the movies table
+cursor.execute('SELECT * FROM movies')
+
+# Fetch all rows
+rows = cursor.fetchall()
+
+# Display the rows
+for row in rows:
+    print(row)
+
+# Close the connection
+conn.close()
 
 
-print("---- Logic ---- \n")
-print("---- Logic Line 2 ---- \n")
-print("---- Logic Line 3 ---- \n")
-print("---- ----\n")
+
+print("---- Hit Movies Printed DONE  ---- \n")
