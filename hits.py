@@ -32,8 +32,8 @@ def create_and_populate_db(csv_file, db_file):
     conn.close()
 
 # Usage
-csv_file = '/Users/rhishijoshi/Hits/bollywood_meta_2010-2019.csv'
-db_file = '/Users/rhishijoshi/Hits/bollywood_movies.db'
+csv_file = './bollywood_meta_2010-2019.csv'
+db_file = './bollywood_movies.db'
 create_and_populate_db(csv_file, db_file)
 
 print("Database created and data inserted successfully.")
@@ -41,7 +41,7 @@ print("Database created and data inserted successfully.")
 print("---- Printing hit Movies ---- \n")
 
 # Connect to SQLite database
-conn = sqlite3.connect('/Users/rhishijoshi/Hits/bollywood_movies.db')
+conn = sqlite3.connect(db_file)
 cursor = conn.cursor()
 
 # Query to select all rows from the movies table
